@@ -10,12 +10,23 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
+// TAMBAHKAN INI
+use Illuminate\Database\Eloquent\Relations\HasMany;
+
 #[Fillable(['name', 'email', 'password'])]
 #[Hidden(['password', 'remember_token'])]
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */
     use HasFactory, Notifiable;
+
+    /**
+     * Relasi ke Watchlist
+     */
+    public function watchlists(): HasMany
+    {
+        return $this->hasMany(Watchlist::class);
+    }
 
     /**
      * Get the attributes that should be cast.
