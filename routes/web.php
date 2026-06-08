@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\WatchlistController;
+use App\Http\Controllers\ReviewController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -29,6 +30,16 @@ Route::middleware('auth')->group(function () {
     Route::delete('/watchlist/{watchlist}', [WatchlistController::class, 'destroy'])
         ->name('watchlist.destroy');
 
+
+    //RIVIEW
+    Route::get('/reviews', [ReviewController::class, 'index'])
+    ->name('reviews.index');
+
+    Route::post('/reviews', [ReviewController::class, 'store'])
+        ->name('reviews.store');
+
+    Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])
+        ->name('reviews.destroy');
 });
 
 require __DIR__.'/auth.php';

@@ -23,9 +23,14 @@ class User extends Authenticatable
     /**
      * Relasi ke Watchlist
      */
-    public function watchlists(): HasMany
+        public function watchlists(): HasMany
     {
         return $this->hasMany(Watchlist::class);
+    }
+
+    public function reviews(): HasMany
+    {
+        return $this->hasMany(Review::class);
     }
 
     /**

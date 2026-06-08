@@ -27,6 +27,12 @@
                         Watchlist
                     </x-nav-link>
 
+                    <x-nav-link
+                        :href="route('reviews.index')"
+                        :active="request()->routeIs('reviews.*')">
+                        Review
+                    </x-nav-link>
+
                 </div>
 
             </div>
@@ -127,6 +133,12 @@
                 :href="route('watchlist.index')"
                 :active="request()->routeIs('watchlist.*')">
                 Watchlist
+            </x-responsive-nav-link>
+
+            <x-responsive-nav-link
+                :href="route('reviews.index')"
+                :active="request()->routeIs('reviews.*')">
+                Review
             </x-responsive-nav-link>
 
         </div>
